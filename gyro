@@ -2,7 +2,7 @@
 #include <MPU6050.h>
 
 #define PCA9548A_ADDRESS 0x70 // Endereço I2C do PCA9548A
-#define GY521_CHANNEL 5 // Canal do multiplexador para o GY-521
+#define GY521_CHANNEL 4 // Canal do multiplexador para o GY-521
 
 MPU6050 mpu; // Cria um objeto MPU6050
 
@@ -10,7 +10,7 @@ void setup() {
   Serial.begin(9600);
   Wire.begin();
   
-  // Seleciona o canal 5 do PCA9548A
+  // Seleciona o canal 4 do PCA9548A
   selectChannel(GY521_CHANNEL);
   
   // Inicializa o MPU6050
@@ -25,18 +25,11 @@ void setup() {
 }
 
 void loop() {
-  // Variáveis para armazenar os valores do giroscópio e do acelerômetro
-  int16_t ax, ay, az;
+  // Variáveis para armazenar os valores do giroscópio
   int16_t gx, gy, gz;
   
-  // Lê os dados do sensor
-  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-  
-  // Imprime os dados do acelerômetro
-  Serial.print("Acelerômetro: ");
-  Serial.print("X = "); Serial.print(ax);
-  Serial.print(", Y = "); Serial.print(ay);
-  Serial.print(", Z = "); Serial.println(az);
+  // Lê os dados do giroscópio
+  mpu.getRotation(&gx, &gy, &gz);
   
   // Imprime os dados do giroscópio
   Serial.print("Giroscópio: ");
