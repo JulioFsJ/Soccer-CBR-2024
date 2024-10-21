@@ -1,9 +1,9 @@
-int motor1_A = 34;
-int motor1_B = 32;
-int motor2_A = 30;
-int motor2_B = 28;
-int motor3_A = 26;
-int motor3_B = 24;
+int motor1_A = 52;
+int motor1_B = 53;
+int motor2_A = 38;
+int motor2_B = 40;
+int motor3_A = 36;
+int motor3_B = 34;
 
 void setup() {
   pinMode(motor1_A, OUTPUT);
