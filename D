@@ -15,10 +15,8 @@ void setup() {
   Serial.begin(9600);
   Wire.begin();
   
-  // Seleciona o canal 4 do PCA9548A
-  selectChannel(GY521_CHANNEL);
-  
   // Inicializa o MPU6050
+  selectChannel(GY521_CHANNEL);
   mpu.initialize();
   
   // Verifica se o sensor está conectado corretamente
@@ -45,4 +43,20 @@ void loop() {
   Serial.print("Giroscópio: ");
   Serial.print("X = "); Serial.print(gx);
   Serial.print(", Y = "); Serial.print(gy);
-  Serial
+  Serial.print(", Z = "); Serial.println(gz);
+  
+  delay(500); // Delay para evitar leituras muito rápidas
+}
+
+// Função para selecionar um canal do PCA9548A
+void selectChannel(uint8_t channel) {
+  if (channel > 7) return; // Canal inválido
+  
+  Wire.beginTransmission(PCA9548A_ADDRESS);
+  Wire.write(1 << channel); // Ativa apenas o canal desejado
+  
+  // Envia os dados e verifica se foi bem-sucedido
+  if (Wire.endTransmission() != 0) {
+    Serial.println("Erro ao selecionar o canal do PCA9548A");
+  }
+}
