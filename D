@@ -1,0 +1,9 @@
+Giroscópio: X = 15, Y = 336, Z = -128
+Giroscópio: X = 13, Y = 354, Z = -126
+Giroscópio: X = 44, Y = 351, Z = -103
+Giroscópio: X = 15, Y = 335, Z = -119
+Giroscópio: X = -39, Y = 303, Z = -115
+Giroscópio: X = 11, Y = 342, Z = -131
+Giroscópio: X = 29, Y = 338, Z = -112
+Giroscópio: X = 36, Y = 366, Z = -142
+Giroscópio: X = 1, Y = 345, Z = -132
