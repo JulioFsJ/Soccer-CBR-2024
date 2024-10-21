@@ -1,9 +1,59 @@
-Giroscópio: X = 15, Y = 336, Z = -128
-Giroscópio: X = 13, Y = 354, Z = -126
-Giroscópio: X = 44, Y = 351, Z = -103
-Giroscópio: X = 15, Y = 335, Z = -119
-Giroscópio: X = -39, Y = 303, Z = -115
-Giroscópio: X = 11, Y = 342, Z = -131
-Giroscópio: X = 29, Y = 338, Z = -112
-Giroscópio: X = 36, Y = 366, Z = -142
-Giroscópio: X = 1, Y = 345, Z = -132
+#include <Wire.h>
+#include <MPU6050.h>
+
+#define PCA9548A_ADDRESS 0x70 // Endereço I2C do PCA9548A
+#define GY521_CHANNEL 4 // Canal do multiplexador para o GY-521
+
+MPU6050 mpu; // Cria um objeto MPU6050
+
+// Offsets calculados
+int16_t gx_offset = 14;
+int16_t gy_offset = 360;
+int16_t gz_offset = -111;
+
+void setup() {
+  Serial.begin(9600);
+  Wire.begin();
+  
+  // Seleciona o canal 4 do PCA9548A
+  selectChannel(GY521_CHANNEL);
+  
+  // Inicializa o MPU6050
+  mpu.initialize();
+  
+  // Verifica se o sensor está conectado corretamente
+  if (!mpu.testConnection()) {
+    Serial.println("Erro na conexão com o MPU6050");
+    while (1);
+  }
+  Serial.println("MPU6050 conectado com sucesso!");
+}
+
+void loop() {
+  // Variáveis para armazenar os valores do giroscópio
+  int16_t gx, gy, gz;
+  
+  // Lê os dados do giroscópio
+  mpu.getRotation(&gx, &gy, &gz);
+  
+  // Aplica os offsets
+  gx -= gx_offset;
+  gy -= gy_offset;
+  gz -= gz_offset;
+  
+  // Imprime os dados do giroscópio
+  Serial.print("Giroscópio: ");
+  Serial.print("X = "); Serial.print(gx);
+  Serial.print(", Y = "); Serial.print(gy);
+  Serial.print(", Z = "); Serial.println(gz);
+  
+  delay(500); // Delay para evitar leituras muito rápidas
+}
+
+// Função para selecionar um canal do PCA9548A
+void selectChannel(uint8_t channel) {
+  if (channel > 7) return; // Canal inválido
+  Wire.beginTransmission(PCA9548A_ADDRESS);
+  Wire.write(1 << channel); // Ativa apenas o canal desejado
+  Wire.endTransmission();
+}
