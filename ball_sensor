@@ -1,5 +1,5 @@
-const int NUM_SENSORS = 8;  // Número total de sensores IR
-const int IR_PINS[NUM_SENSORS] = {2, 3, 4, 5, 6, 7, 8, 9}; // Pinos digitais
+const int NUM_SENSORS = 8;  
+const int IR_PINS[NUM_SENSORS] = {2, 3, 4, 5, 6, 7, 8, 9}; 
 
 void setup() {
   Serial.begin(9600);
@@ -9,22 +9,23 @@ void setup() {
 }
 
 void loop() {
-  float minDutyCycle = 100.0; // Inicializa com um valor alto
-  int minSensorIndex = -1; // Índice do sensor com menor duty cycle
-  int sensorVector[NUM_SENSORS] = {0}; // Inicializa o vetor com zeros
+  float minDutyCycle = 100.0;  
+  int minSensorIndex = -1; 
+  int sensorVector[NUM_SENSORS] = {0}; 
 
+    // Calcula o sinal
   for (int i = 0; i < NUM_SENSORS; ++i) {
-    unsigned long duration = pulseIn(IR_PINS[i], HIGH); // Mede a duração do pulso em HIGH para o sensor atual
+    unsigned long duration = pulseIn(IR_PINS[i], HIGH); 
 
     if (duration > 0) {
       float dutyCycle = (duration / 1000.0) * 100.0; // Calcula o duty cycle em porcentagem
       Serial.print("Sensor ");
       Serial.print(i); // Identifica o número do sensor
       Serial.print(": ");
-      Serial.print(dutyCycle); // Imprime o duty cycle
+      Serial.print(dutyCycle); 
       Serial.print("%, ");
 
-      // Verifica se o duty cycle atual é o menor
+      // Verifica se o duty cycle é o menor
       if (dutyCycle < minDutyCycle) {
         minDutyCycle = dutyCycle;
         minSensorIndex = i;
