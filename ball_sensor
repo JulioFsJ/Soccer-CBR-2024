@@ -15,7 +15,8 @@ void loop() {
 
     // Calcula o sinal
   for (int i = 0; i < NUM_SENSORS; ++i) {
-    unsigned long duration = pulseIn(IR_PINS[i], HIGH); 
+    unsigned long duration = pulseIn(IR_PINS[i], HIGH, 820); 
+
 
     if (duration > 0) {
       float dutyCycle = (duration / 1000.0) * 100.0; // Calcula o duty cycle em porcentagem
