@@ -17,18 +17,52 @@ void motorComb0() {
   SoftPWMSet(MOTOR_PINS[5], 150);
 }
 
+void motorComb1() {
+  desligarMotores();
+  SoftPWMSet(MOTOR_PINS[0], 150); 
+  SoftPWMSet(MOTOR_PINS[5], 150); 
+  SoftPWMSet(MOTOR_PINS[3], 100); 
+}
+
 void motorComb2() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
-  SoftPWMSet(MOTOR_PINS[3], 25); 
+  SoftPWMSet(MOTOR_PINS[4], 25);
+}
+
+void motorComb3() {
+  desligarMotores(); 
+  SoftPWMSet(MOTOR_PINS[0], 150); 
+  SoftPWMSet(MOTOR_PINS[5], 150);
 }
 
 void motorComb4() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
+  SoftPWMSet(MOTOR_PINS[3], 25); 
+}
+
+void motorComb5() {
+  desligarMotores();
+  SoftPWMSet(MOTOR_PINS[0], 100); 
+  SoftPWMSet(MOTOR_PINS[5], 100); 
   SoftPWMSet(MOTOR_PINS[4], 25); 
+}
+
+void motorComb6() {
+  desligarMotores(); 
+  SoftPWMSet(MOTOR_PINS[0], 150); 
+  SoftPWMSet(MOTOR_PINS[5], 150);
+}
+
+void motorComb7() {
+  desligarMotores();
+  SoftPWMSet(MOTOR_PINS[0], 100); 
+  SoftPWMSet(MOTOR_PINS[5], 100); 
+  SoftPWMSet(MOTOR_PINS[3], 25); 
+}
 
 void desligarMotores() {
   // Desliga todos os motores com PWM zero
