@@ -55,14 +55,28 @@ void loop() {
 
     switch(minSensorIndex) {
       case 0:
-        motorComb0();  // Ativa a combinação de motores 0
+        motorComb0(); 
         break;
       case 1:
-        motorComb2();  // Ativa a combinação de motores 2
+        motorComb1();  
+        break;
+      case 2:
+       motorComb2();  
+       break;
+      case 3:
+        motorComb3(); 
         break;
       case 4:
+        motorComb4();  
+        break;
+      case 5:
+        motorComb5();  
+        break;
+      case 6:
+        motorComb5(); 
+        break;
       case 7:
-        motorComb4();  // Ativa a combinação de motores 4
+        motorComb7();  
         break;
       default:
         desligarMotores(); // Desliga todos os motores para índices sem combinação específica
