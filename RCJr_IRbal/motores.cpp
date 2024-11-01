@@ -11,53 +11,53 @@ void setupMotors() {
 }
 
 // Funções para definir combinações de motores
-void motorComb0() {
+void Frente() {
   desligarMotores(); 
   SoftPWMSet(MOTOR_PINS[0], 150); 
   SoftPWMSet(MOTOR_PINS[5], 150);
 }
 
-void motorComb1() {
+void diagonaldireita() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 150); 
   SoftPWMSet(MOTOR_PINS[5], 150); 
   SoftPWMSet(MOTOR_PINS[3], 100); 
 }
 
-void motorComb2() {
+void direita() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
   SoftPWMSet(MOTOR_PINS[4], 25);
 }
 
-void motorComb3() {
+void diagonalinferiordireita() {
   desligarMotores(); 
   SoftPWMSet(MOTOR_PINS[0], 150); 
   SoftPWMSet(MOTOR_PINS[5], 150);
 }
 
-void motorComb4() {
+void tras() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
   SoftPWMSet(MOTOR_PINS[3], 25); 
 }
 
-void motorComb5() {
+void diagonalinferioresquerda() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
   SoftPWMSet(MOTOR_PINS[4], 25); 
 }
 
-void motorComb6() {
+void esquerda() {
   desligarMotores(); 
   SoftPWMSet(MOTOR_PINS[0], 150); 
   SoftPWMSet(MOTOR_PINS[5], 150);
 }
 
-void motorComb7() {
+void diagonalesquerda() {
   desligarMotores();
   SoftPWMSet(MOTOR_PINS[0], 100); 
   SoftPWMSet(MOTOR_PINS[5], 100); 
