@@ -11,9 +11,14 @@ const int MOTOR_PINS[6] = {52, 53, 40, 38, 34, 36}; // Frente motor 1, trás mot
 void setupMotors();
 
 // Funções para controlar as combinações específicas de motores
-void motorComb0();
-void motorComb2();
-void motorComb4();
+void frente();
+void diagonaldireita();
+void direita();
+void diagonalinferiordireita();
+void tras();
+void diagonalinferioresquerda();
+void esquerda();
+void diagonalesquerda();
 void desligarMotores();
 
 #endif
